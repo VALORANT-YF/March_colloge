@@ -2,7 +2,6 @@ package router
 
 import (
 	"bluebell/logger"
-	"bluebell/settings"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -10,7 +9,7 @@ import (
 
 func Setup() *gin.Engine {
 	// 设置 gin 框架日志输出模式
-	gin.SetMode(settings.Conf.GinConfig.Mode)
+	//gin.SetMode(settings.Conf.GinConfig.Mode)
 	// 创建一个路由引擎
 	r := gin.New()
 	r.Use(logger.GinLogger(), logger.GinRecovery(true))
