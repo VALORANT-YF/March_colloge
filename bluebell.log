@@ -1,0 +1,9 @@
+{"level":"DEBUG","time":"2023-09-22T22:03:27.993+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"ERROR","time":"2023-09-22T22:03:28.010+0800","caller":"mysql/mysql.go:32","msg":"connect DB failed","error":"Error 1130: Host 'ʮ????????ʮ??Ԫ' is not allowed to connect to this MySQL server"}
+{"level":"DEBUG","time":"2023-09-22T22:03:45.782+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"ERROR","time":"2023-09-22T22:03:45.793+0800","caller":"mysql/mysql.go:32","msg":"connect DB failed","error":"Error 1130: Host 'ʮ????????ʮ??Ԫ' is not allowed to connect to this MySQL server"}
+{"level":"DEBUG","time":"2023-09-22T22:05:01.437+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"DEBUG","time":"2023-09-22T22:05:30.358+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"DEBUG","time":"2023-09-22T22:06:02.314+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"DEBUG","time":"2023-09-22T22:07:04.556+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
+{"level":"DEBUG","time":"2023-09-22T22:08:29.564+0800","caller":"BlueBell/main.go:34","msg":"logger init success"}
