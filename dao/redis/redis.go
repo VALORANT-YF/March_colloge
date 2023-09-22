@@ -1,17 +1,9 @@
-/*
-   @Author: StudentCWZ
-   @Description:
-   @File: redis
-   @Software: GoLand
-   @Project: GoWeb
-   @Date: 2022/3/17 16:18
-*/
-
 package redis
 
 import (
 	"bluebell/settings"
 	"fmt"
+
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"
 )

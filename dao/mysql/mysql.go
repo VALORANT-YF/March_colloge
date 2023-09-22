@@ -1,17 +1,9 @@
-/*
-   @Author: StudentCWZ
-   @Description:
-   @File: mysql
-   @Software: GoLand
-   @Project: GoWeb
-   @Date: 2022/3/17 16:03
-*/
-
 package mysql
 
 import (
 	"bluebell/settings"
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
