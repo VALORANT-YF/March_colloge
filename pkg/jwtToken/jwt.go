@@ -29,7 +29,7 @@ func GenToken(userID int64, username string) (string, error) {
 		},
 	}
 	// 使用指定的签名方法创建签名对象
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, c)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, c)
 	// 使用指定的secret 签名并获得完整的编码后的字符串 token
 	return token.SignedString(mySecret)
 }
