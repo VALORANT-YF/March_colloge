@@ -51,7 +51,7 @@ func ResponseSuccessWithData(context *gin.Context, data interface{}) {
 
 func ResponseSuccess(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{
-		"Code": CodeSuccess,
-		"Msg":  CodeSuccess.Msg(),
+		"code": CodeSuccess,
+		"msg":  CodeSuccess.Msg(),
 	})
 }
