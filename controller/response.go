@@ -40,11 +40,18 @@ func ResponseErrorWithMsg(context *gin.Context, code ResCode, msg interface{}) {
 	context.JSON(http.StatusOK, rd)
 }
 
-func ResponseSuccess(context *gin.Context, data interface{}) {
+func ResponseSuccessWithData(context *gin.Context, data interface{}) {
 	rd := &ResponseData{
 		Code: CodeSuccess,
 		Msg:  CodeSuccess.Msg(),
 		Data: data,
 	}
 	context.JSON(http.StatusOK, rd)
+}
+
+func ResponseSuccess(context *gin.Context) {
+	context.JSON(http.StatusOK, gin.H{
+		"Code": CodeSuccess,
+		"Msg":  CodeSuccess.Msg(),
+	})
 }

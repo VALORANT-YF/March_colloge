@@ -1,8 +1,9 @@
 package mysql
 
 import (
-	"bluebell/settings"
+	"college/settings"
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -29,9 +30,12 @@ func Init(cfg *settings.MySQLConfig) (err error) {
 	}
 
 	//自动建表
-	//DB.AutoMigrate(models.Message{})
-	//DB.AutoMigrate(models.NotificationMessage{})
-	//creatTable(models.Student{})
+	//DB.AutoMigrate(bookBlogArticle.TbBookArticle{})
+	//DB.AutoMigrate(bookBlogArticle.TbBlog{})
+	//DB.AutoMigrate(deptsModel.TbDept{})
+	//DB.AutoMigrate(usersModel.TbUser{})
+	//DB.AutoMigrate(robotModels.TbRobot{})
+	//creatTable(bookBlogArticle.TbBookBlogArticle{})
 	//migrate 仅支持创建表、增加表中没有的字段和索引
 	//DB.AutoMigrate(&models.Student{})
 	return

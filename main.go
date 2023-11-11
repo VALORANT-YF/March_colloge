@@ -1,13 +1,15 @@
 package main
 
 import (
-	"bluebell/dao/mysql"
-	"bluebell/dao/redis"
-	"bluebell/logger"
-	"bluebell/router"
-	"bluebell/settings"
+	"college/dao/mysql"
+	"college/dao/redis"
+	"college/logger"
+	"college/pkg/timeTask"
+	"college/router"
+	"college/settings"
 	"context"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"os"
@@ -17,8 +19,6 @@ import (
 
 	"go.uber.org/zap"
 )
-
-// Go web 开发较通用的脚手架
 
 func main() {
 	// 1. 加载配置
@@ -52,6 +52,15 @@ func main() {
 
 	// 5. 注册路由
 	r := router.Setup()
+
+	//启动定时任务
+	contextGin := new(gin.Context)
+	if err := timeTask.TimeTask(contextGin); err != nil {
+		zap.L().Error("定时任务启动失败", zap.Error(err))
+		return
+	}
+	zap.L().Info("定时任务启动成功")
+
 	// 6. 启动服务（优雅关机）
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%d", settings.Conf.AppConfig.Port),

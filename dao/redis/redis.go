@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"bluebell/settings"
+	"college/settings"
 	"fmt"
 
 	"github.com/go-redis/redis"
@@ -11,6 +11,7 @@ import (
 var (
 	client *redis.Client
 	Nil    = redis.Nil
+	RDB    *redis.Client
 )
 
 // Init 初始化连接
@@ -22,6 +23,13 @@ func Init(cfg *settings.RedisConfig) (err error) {
 		PoolSize: cfg.PoolSize,
 	})
 	_, err = client.Ping().Result()
+	if err != nil {
+		zap.L().Error("redis connect ping failed , err :", zap.Error(err))
+		return
+	} else {
+		RDB = client
+		zap.L().Info("Redis连接成功")
+	}
 	return
 }
 

@@ -1,8 +1,8 @@
 package middles
 
 import (
-	"bluebell/controller"
-	"bluebell/pkg/jwtToken"
+	"college/controller"
+	"college/pkg/jwtToken"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -35,7 +35,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 			return
 		}
 		// 将当前请求的 userID 信息保存到请求的上下文 c 上
-		c.Set(controller.CtxtUserIDKey, mc.UserId)
-		c.Next() // 后续处理请求函数可以用 c.Get("username") 来获取当前请求的用户信息
+		c.Set(controller.CtxtUserIDKey, mc.UserId) //CtxUserIDKey 为userID
+		c.Next()                                   // 后续处理请求函数可以用 c.Get("username") 来获取当前请求的用户信息
 	}
 }

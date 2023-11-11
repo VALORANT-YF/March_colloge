@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"bluebell/settings"
+	"college/settings"
 	"net"
 	"net/http"
 	"net/http/httputil"
