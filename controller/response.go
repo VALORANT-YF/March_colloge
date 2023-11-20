@@ -53,6 +53,7 @@ func ResponseSuccess(context *gin.Context) {
 	rd := &ResponseData{
 		Code: CodeSuccess,
 		Msg:  CodeSuccess.Msg(),
+		Data: nil,
 	}
 	context.JSON(http.StatusOK, rd)
 }
