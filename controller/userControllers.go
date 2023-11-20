@@ -3,6 +3,7 @@ package controller
 import (
 	"college/logic"
 	"college/models/usersModel"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -38,6 +39,7 @@ func (u UserController) UserInitialBookBlog(context *gin.Context) {
 		ResponseError(context, CodeNeedLogin)
 		return
 	}
+	fmt.Println(unionid)
 	err, bookisExists := logic.FindBookBlogAddressService(unionid)
 	if err != nil {
 		zap.L().Error("logic.FindBookBlogAddressService(unionid) is failed", zap.Error(err))
@@ -45,6 +47,8 @@ func (u UserController) UserInitialBookBlog(context *gin.Context) {
 	}
 	//如果简书博客主页地址不存在 , 说明用户是第一次登录
 	if !bookisExists {
+		fmt.Println("简书链接不存在")
+		fmt.Println(CodeNoURL)
 		ResponseError(context, CodeNoURL)
 		return
 	}

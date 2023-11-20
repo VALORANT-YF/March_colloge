@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_jsbk"]=self["webpackChunkvue_jsbk"]||[]).push([[16],{5016:function(n,u,e){e.r(u),e.d(u,{default:function(){return i}});var t=function(){var n=this,u=n._self._c;return u("div",{staticClass:"normol"},[u("button",{on:{click:n.add}},[n._v("4566")])])},a=[],s=e(9252),c={name:"FuckordinaryView",methods:{async add(){await(0,s.Eu)(),console.log("///////")}},mounted:{}},o=c,l=e(1001),r=(0,l.Z)(o,t,a,!1,null,"2af9fafc",null),i=r.exports}}]);
+//# sourceMappingURL=16.13681fd8.js.map

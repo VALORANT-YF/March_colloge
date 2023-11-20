@@ -5,6 +5,7 @@ import (
 	"college/models/bookBlogArticle"
 	"college/models/usersModel"
 	"college/pkg/jwtToken"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -36,6 +37,7 @@ func FindBookBlogAddressService(unionid string) (error, bool) {
 	if err != nil {
 		return err, false
 	}
+	fmt.Println(address)
 	if len(address.BlogAddress) == 0 {
 		return nil, false
 	}

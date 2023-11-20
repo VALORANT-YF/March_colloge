@@ -42,8 +42,13 @@ func ParseBooksHomeHtml(doc *goquery.Document) []string {
 			if err == nil {
 				//计算时间差
 				duration := currentTime.Sub(sharedTime)
-				//如果时间差在一周内,提取相应的文章链接
-				if duration.Hours() < 7*24 {
+				if strings.Contains(timeAttr, "天") {
+					//找到相应<a>元素的href属性
+					url := selection.Parent().Find("a[target=_blank]").AttrOr("href", "")
+					url = fmt.Sprintf("https://www.jianshu.com%s", url)
+					articleUrls = append(articleUrls, url)
+				} else if duration.Hours() < 7*24 {
+					//如果时间差在一周内,提取相应的文章链接
 					//找到相应<a>元素的href属性
 					url := selection.Parent().Find("a[target=_blank]").AttrOr("href", "")
 					url = fmt.Sprintf("https://www.jianshu.com%s", url)

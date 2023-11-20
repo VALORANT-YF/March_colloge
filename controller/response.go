@@ -19,7 +19,7 @@ import (
 type ResponseData struct {
 	Code ResCode     `json:"code"`
 	Msg  interface{} `json:"msg"`
-	Data interface{} `json:"data"`
+	Data interface{} `json:"data,omitempty"`
 }
 
 func ResponseError(context *gin.Context, code ResCode) {
@@ -50,8 +50,10 @@ func ResponseSuccessWithData(context *gin.Context, data interface{}) {
 }
 
 func ResponseSuccess(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{
-		"Code": CodeSuccess,
-		"Msg":  CodeSuccess.Msg(),
-	})
+	rd := &ResponseData{
+		Code: CodeSuccess,
+		Msg:  CodeSuccess.Msg(),
+		Data: nil,
+	}
+	context.JSON(http.StatusOK, rd)
 }

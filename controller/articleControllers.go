@@ -34,7 +34,7 @@ func (a ArticleController) UserArticle(context *gin.Context) {
 			response, err := http.Get(userArticleInformation[i].BookAddress)
 			if err != nil {
 				zap.L().Error("http.Get(\"https://www.v2ex.com/\") is failed", zap.Error(err))
-				return
+				continue
 			}
 			defer response.Body.Close()
 			// 使用 NewDocumentFromReader 创建文档
@@ -122,14 +122,14 @@ func (a ArticleController) UserBlog(context *gin.Context) {
 			response, err := http.Get(userBlogInformation[i].BlogAddress)
 			if err != nil {
 				zap.L().Error("http.Get(bolg_address) is failed", zap.Error(err))
-				return
+				continue
 			}
 			defer response.Body.Close()
 			// 使用 NewDocumentFromReader 创建文档
 			docHome, err := goquery.NewDocumentFromReader(response.Body)
 			if err != nil {
 				zap.L().Error("goquery.NewDocumentFromReader(response.Body) is failed", zap.Error(err))
-				return
+				continue
 			}
 			blogUrls := article.ParseBlogHomeHtml(docHome) //拿到最新一周博客内容的链接
 			var personBlog bookBlogArticle.TbBlog          // 一篇博客的信息
