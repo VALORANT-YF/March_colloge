@@ -12,16 +12,16 @@ log:
   max_backups: 7
 
 mysql:
-  host: 152.136.50.60
+  host: localhost
   port: 3306
   user: "root"
-  password: "zyf9630"
+  password: "1111"
   db: "college"
   max_open_connection: 20
   max_idle_connection: 10
 
 redis:
-  host: 152.136.50.60
+  host: localhost
   port: 6379
   password: ""
   db: 1
