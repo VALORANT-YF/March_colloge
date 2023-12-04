@@ -8771,3 +8771,10 @@
 {"level":"INFO","time":"2023-12-04T16:06:31.600+0800","caller":"logger/logger.go:85","msg":"/admin/elect","status":200,"method":"POST","path":"/admin/elect","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.3354513}
 {"level":"INFO","time":"2023-12-04T16:15:56.353+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-12-04T16:15:56.353+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-12-04T16:16:00.929+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-12-04T16:16:02.908+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-12-04T16:16:02.910+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-12-04T16:16:02.917+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-12-04T16:16:06.746+0800","caller":"logger/logger.go:85","msg":"/admin/elect","status":200,"method":"POST","path":"/admin/elect","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.3435955}
+{"level":"INFO","time":"2023-12-04T16:18:08.188+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-04T16:18:08.188+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
