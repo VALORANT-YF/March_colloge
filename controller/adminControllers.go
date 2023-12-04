@@ -129,12 +129,13 @@ func (d AdminController) ExcellentBookBlog(context *gin.Context) {
 		ResponseError(context, CodeInvalidParam)
 		return
 	}
-	if err := logic.ElectExcellentUserService(excellent); err != nil {
+	result, err := logic.ElectExcellentUserService(excellent)
+	if err != nil {
 		zap.L().Error("logic.ElectExcellentUserService(excellent) is failed", zap.Error(err))
 		ResponseError(context, CodeServerBusy)
 		return
 	}
-	ResponseSuccess(context)
+	ResponseSuccessWithData(context, result)
 }
 
 // LookRobot 管理员查看机器人token

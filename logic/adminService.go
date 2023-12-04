@@ -59,14 +59,10 @@ func SelectNoWriteUserService() (err error, queryResult []usersModel.NoWriteView
 			_, titleBook := mysql.SelectArticleByMobile(user.Mobile)
 			_, titleBlog := mysql.SelectBlogByMobile(user.Mobile)
 			if len(titleBook) == 0 && len(titleBlog) == 0 {
-				//判断现在时间是否是周日晚上11:30 , 如果是未写次数加1
+				// 判断现在时间是否是周日晚上11点之后
 				now := time.Now()
-				//计算目标时间 即 周日晚上11:30
-				targetTime := time.Date(now.Year(), now.Month(), now.Day(), 23, 30, 0, 0, now.Location())
-				// 允许的时间误差为20分钟
-				allowedTimeDelta := 20 * time.Minute
-				if now.After(targetTime.Add(-allowedTimeDelta)) && now.Before(targetTime.Add(allowedTimeDelta)) && now.Weekday() == time.Sunday {
-					// 当前时间在目标时间范围内，并且是周日晚上11:30附近
+				if now.Weekday() == time.Tuesday {
+					// 当前时间是周日晚上11点之后
 					err = mysql.UpdateUserNoWriteCount(user.Userid, user.NotWrittenCount+1)
 					if err != nil {
 						return err, nil

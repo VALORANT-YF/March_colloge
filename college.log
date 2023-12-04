@@ -8664,3 +8664,110 @@
 {"level":"INFO","time":"2023-11-20T15:19:33.915+0800","caller":"logger/logger.go:85","msg":"/ding/getUsers","status":200,"method":"POST","path":"/ding/getUsers","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":23.8741172}
 {"level":"INFO","time":"2023-11-20T15:25:44.855+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-11-20T15:25:44.856+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-22T12:12:48.778+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-22T12:12:50.530+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-22T12:12:50.532+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-22T12:12:50.533+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-11-22T12:15:50.603+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-22T12:15:50.603+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-28T10:12:20.246+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-28T10:12:22.168+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-28T10:12:22.169+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-28T10:12:22.170+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-11-28T10:16:36.611+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28T10:16:36.611+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-28T10:16:41.355+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-28T10:16:43.195+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-28T10:16:43.197+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-28T10:16:43.201+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-11-28T10:16:51.593+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28T10:16:51.593+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-28T10:53:07.588+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-28T10:53:09.628+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-28T10:53:09.629+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-28T10:53:09.631+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"ERROR","time":"2023-11-28T10:54:15.731+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-11-28T10:54:17.098+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-11-28T10:54:32.960+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-11-28T10:54:35.045+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"INFO","time":"2023-11-28T10:54:37.041+0800","caller":"controller/articleControllers.go:164","msg":"博客插入成功"}
+{"level":"INFO","time":"2023-11-28T10:54:37.042+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":57.9832092}
+{"level":"INFO","time":"2023-11-28T10:56:31.007+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28T10:56:31.007+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-28T10:56:35.415+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-28T10:56:37.209+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-28T10:56:37.209+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-28T10:56:37.212+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"ERROR","time":"2023-11-28T10:57:37.166+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-11-28T10:57:39.298+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-11-28T10:57:53.270+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-11-28T10:57:54.418+0800","caller":"controller/articleControllers.go:124","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/apps/download/\": EOF"}
+{"level":"INFO","time":"2023-11-28T10:57:57.013+0800","caller":"controller/articleControllers.go:164","msg":"博客插入成功"}
+{"level":"INFO","time":"2023-11-28T10:57:57.013+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":59.8051344}
+{"level":"INFO","time":"2023-11-28T10:58:16.321+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28T10:58:16.321+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-28T10:59:25.941+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-28T10:59:27.825+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-28T10:59:27.825+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-28T10:59:27.828+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"ERROR","time":"2023-11-28T11:02:06.963+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-11-28T11:02:08.389+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-11-28T11:02:22.132+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-11-28T11:02:24.824+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"INFO","time":"2023-11-28T11:02:26.619+0800","caller":"controller/articleControllers.go:166","msg":"博客插入成功"}
+{"level":"INFO","time":"2023-11-28T11:02:26.620+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":51.9372545}
+{"level":"INFO","time":"2023-11-28T11:12:04.304+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-28T11:12:04.305+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-11-29T14:16:36.631+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-11-29T14:16:38.496+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-11-29T14:16:38.497+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-11-29T14:16:38.498+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-11-29T14:16:48.001+0800","caller":"logger/logger.go:85","msg":"/article/selectBlog","status":200,"method":"GET","path":"/article/selectBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.3548083}
+{"level":"INFO","time":"2023-11-29T14:17:12.908+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-11-29T14:17:12.909+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-12-04T15:13:35.522+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-12-04T15:13:37.416+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-12-04T15:13:37.418+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-12-04T15:13:37.422+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"DEBUG","time":"2023-12-04T15:13:54.390+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-12-04T15:13:56.306+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-12-04T15:13:56.306+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-12-04T15:13:56.308+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"ERROR","time":"2023-12-04T15:14:52.981+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:14:54.689+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:15:11.149+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-12-04T15:15:14.139+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:15:14.812+0800","caller":"controller/articleControllers.go:163","msg":"logic.InsertAllPersonBlogService(allPersonBlog) is failed","error":"Error 1406 (22001): Data too long for column 'book_article' at row 1"}
+{"level":"INFO","time":"2023-12-04T15:15:14.813+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":54.5581954}
+{"level":"ERROR","time":"2023-12-04T15:18:15.468+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:18:16.985+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:18:35.947+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-12-04T15:18:38.579+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:18:39.289+0800","caller":"controller/articleControllers.go:163","msg":"logic.InsertAllPersonBlogService(allPersonBlog) is failed","error":"Error 1406 (22001): Data too long for column 'book_article' at row 1"}
+{"level":"INFO","time":"2023-12-04T15:18:39.290+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":55.7450309}
+{"level":"INFO","time":"2023-12-04T15:20:33.697+0800","caller":"logger/logger.go:85","msg":"/user/login","status":200,"method":"POST","path":"/user/login","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.0464436}
+{"level":"INFO","time":"2023-12-04T15:20:43.890+0800","caller":"logger/logger.go:85","msg":"/userLogin/selfInformation","status":200,"method":"GET","path":"/userLogin/selfInformation","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.0820168}
+{"level":"ERROR","time":"2023-12-04T15:23:38.987+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/2301_80161936?spm=1000.2115.3001.5343\": EOF"}
+{"level":"ERROR","time":"2023-12-04T15:23:55.663+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"parse \"http://t.csdnimg.cn/pu5R7\\n\": net/url: invalid control character in URL"}
+{"level":"ERROR","time":"2023-12-04T15:23:58.372+0800","caller":"controller/articleControllers.go:125","msg":"http.Get(bolg_address) is failed","error":"Get \"https://www.csdn.net/\": EOF"}
+{"level":"INFO","time":"2023-12-04T15:23:59.480+0800","caller":"controller/articleControllers.go:166","msg":"博客插入成功"}
+{"level":"INFO","time":"2023-12-04T15:23:59.480+0800","caller":"logger/logger.go:85","msg":"/article/getBlog","status":200,"method":"POST","path":"/article/getBlog","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":57.5275041}
+{"level":"INFO","time":"2023-12-04T15:54:01.614+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-04T15:54:01.615+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-12-04T15:54:23.035+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-12-04T15:54:25.623+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-12-04T15:54:25.623+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-12-04T15:54:25.625+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-12-04T15:54:36.967+0800","caller":"logger/logger.go:85","msg":"/admin-time/excellent","status":200,"method":"GET","path":"/admin-time/excellent","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.1449393}
+{"level":"INFO","time":"2023-12-04T16:05:37.264+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-04T16:05:37.264+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}
+{"level":"DEBUG","time":"2023-12-04T16:05:43.242+0800","caller":"march_college/main.go:34","msg":"logger init success"}
+{"level":"INFO","time":"2023-12-04T16:05:47.418+0800","caller":"redis/redis.go:31","msg":"Redis连接成功"}
+{"level":"DEBUG","time":"2023-12-04T16:05:47.418+0800","caller":"router/router.go:26","msg":"跨域配置成功"}
+{"level":"INFO","time":"2023-12-04T16:05:47.425+0800","caller":"march_college/main.go:62","msg":"定时任务启动成功"}
+{"level":"INFO","time":"2023-12-04T16:05:55.825+0800","caller":"logger/logger.go:85","msg":"/admin/elect","status":200,"method":"POST","path":"/admin/elect","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0}
+{"level":"INFO","time":"2023-12-04T16:06:08.332+0800","caller":"logger/logger.go:85","msg":"/admin/elect","status":200,"method":"POST","path":"/admin/elect","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0}
+{"level":"INFO","time":"2023-12-04T16:06:19.454+0800","caller":"logger/logger.go:85","msg":"/user/login","status":200,"method":"POST","path":"/user/login","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.0436882}
+{"level":"INFO","time":"2023-12-04T16:06:31.600+0800","caller":"logger/logger.go:85","msg":"/admin/elect","status":200,"method":"POST","path":"/admin/elect","query":"","ip":"::1","user-agent":"Apifox/1.0.0 (https://apifox.com)","errors":"","cost":0.3354513}
+{"level":"INFO","time":"2023-12-04T16:15:56.353+0800","caller":"march_college/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-12-04T16:15:56.353+0800","caller":"march_college/main.go:91","msg":"Server exiting ..."}

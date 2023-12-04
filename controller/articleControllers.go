@@ -4,6 +4,7 @@ import (
 	"college/logic"
 	"college/models/bookBlogArticle"
 	"college/pkg/article"
+	"fmt"
 	"net/http"
 	"regexp"
 	"strings"
@@ -122,6 +123,7 @@ func (a ArticleController) UserBlog(context *gin.Context) {
 			response, err := http.Get(userBlogInformation[i].BlogAddress)
 			if err != nil {
 				zap.L().Error("http.Get(bolg_address) is failed", zap.Error(err))
+				fmt.Println(userBlogInformation[i].Name, userBlogInformation[i].BlogAddress)
 				continue
 			}
 			defer response.Body.Close()
