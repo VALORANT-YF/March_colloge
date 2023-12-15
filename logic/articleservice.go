@@ -127,11 +127,11 @@ func SelectAllPersonBlogService() (error, []bookBlogArticle.ViewBlog) {
 }
 
 // ElectExcellentUserService 评选优秀用户的简书或者博客
-func ElectExcellentUserService(excellent bookBlogArticle.Excellent) error {
+func ElectExcellentUserService(excellent bookBlogArticle.Excellent) (result bookBlogArticle.ExcellentArticle, err error) {
 	//开启事务
 	tx := mysql.DB.Begin()
 	if tx.Error != nil {
-		return tx.Error
+		return result, tx.Error
 	}
 	//延迟函数用户处理事务提交 或者回滚
 	defer func() {
@@ -145,14 +145,14 @@ func ElectExcellentUserService(excellent bookBlogArticle.Excellent) error {
 	//根据id 拿到简书主人的信息
 	err, userInformation := mysql.SelectBookById(excellent.Id)
 	if err != nil {
-		return err
+		return result, err
 	}
 	//拿到简书主人的电话号码
 	mobile := userInformation.Mobile
 	//根据电话号码查找简书主人的信息
 	err, queryResult := mysql.SelectInformationByTel(mobile)
 	if err != nil {
-		return err
+		return result, err
 	}
 	var newCount uint32
 	if excellent.IsTop == 1 {
@@ -162,7 +162,7 @@ func ElectExcellentUserService(excellent bookBlogArticle.Excellent) error {
 	}
 	if err = mysql.UpdateUserExcellentCount(queryResult.ID, newCount, tx); err != nil {
 		tx.Rollback()
-		return err
+		return result, err
 	}
 
 	//评选或取消优秀  1 为简书
@@ -170,20 +170,22 @@ func ElectExcellentUserService(excellent bookBlogArticle.Excellent) error {
 		//是否评选为优秀简书
 		if err = mysql.UpdateExcellentArticle(excellent.Id, excellent.IsTop, tx); err != nil {
 			tx.Rollback()
-			return err
+			return result, err
 		}
 	} else {
 		//是否评选为优秀博客
 		if err = mysql.UpdateExcellentBlog(excellent.Id, excellent.IsTop, tx); err != nil {
 			tx.Rollback()
-			return err
+			return result, err
 		}
 	}
 	if err = tx.Commit().Error; err != nil {
 		tx.Rollback()
-		return err
+		return result, err
 	}
-	return err
+	result.IsTop = 1
+	result.ID = int(excellent.Id)
+	return result, err
 }
 
 // IsWriteBookService 部门是否需要写简书

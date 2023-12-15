@@ -20,3 +20,8 @@ type ViewResult struct {
 	DeptName string `json:"dept_name"`
 	TypeName TypeName
 }
+
+type ExcellentArticle struct {
+	ID    int `json:"id"`
+	IsTop int `json:"is_top"`
+}

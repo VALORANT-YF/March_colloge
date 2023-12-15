@@ -15,7 +15,6 @@ mysql:
   host: localhost
   port: 3306
   user: "root"
-  password: "password"
   db: "college"
   max_open_connection: 20
   max_idle_connection: 10
@@ -23,7 +22,6 @@ mysql:
 redis:
   host: localhost
   port: 6379
-  password: ""
   db: 1
   pool_size: 100
 
