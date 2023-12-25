@@ -1,10 +1,6 @@
 package mysql
 
 import (
-	"college/models/bookBlogArticle"
-	"college/models/deptsModel"
-	"college/models/robotModels"
-	"college/models/usersModel"
 	"college/settings"
 	"fmt"
 
@@ -34,11 +30,6 @@ func Init(cfg *settings.MySQLConfig) (err error) {
 	}
 
 	//自动建表
-	DB.AutoMigrate(bookBlogArticle.TbBookArticle{})
-	DB.AutoMigrate(bookBlogArticle.TbBlog{})
-	DB.AutoMigrate(deptsModel.TbDept{})
-	DB.AutoMigrate(usersModel.TbUser{})
-	DB.AutoMigrate(robotModels.TbRobot{})
 	//migrate 仅支持创建表、增加表中没有的字段和索引
 	//DB.AutoMigrate(&models.Student{})
 	return

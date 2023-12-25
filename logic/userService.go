@@ -13,11 +13,10 @@ import (
 // FindUserIfExistService 查询用户信息,如果用户存在,则允许登录
 func FindUserIfExistService(userAccount *usersModel.UserAccount) (error, bool, string, usersModel.UserLoginResp) {
 	mobile := userAccount.Mobile     //电话号码
-	name := userAccount.Name         //用户姓名
 	password := userAccount.Password //密码
 
 	var aToken string
-	userInformation, err := mysql.SelectUserByTelAndName(mobile, name, password)
+	userInformation, err := mysql.SelectUserByTelAndName(mobile, password)
 	var resp = usersModel.UserLoginResp{}
 	//如果发生错误或者用户的唯一表示unionid为空,则登录失败
 	if err != nil || len(userInformation.Unionid) == 0 {

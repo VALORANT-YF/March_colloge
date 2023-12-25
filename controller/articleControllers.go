@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
@@ -33,8 +34,11 @@ func (a ArticleController) UserArticle(context *gin.Context) {
 		if len(userArticleInformation[i].BookAddress) != 0 {
 			// 创建 HTTP 请求
 			response, err := http.Get(userArticleInformation[i].BookAddress)
+			context.Header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36")
+			time.Sleep(time.Second * 5) //5秒访问一次
 			if err != nil {
 				zap.L().Error("http.Get(\"https://www.v2ex.com/\") is failed", zap.Error(err))
+				zap.L().Error("error is name : %s", zap.Any("name", userArticleInformation[i].Name))
 				continue
 			}
 			defer response.Body.Close()
@@ -42,11 +46,14 @@ func (a ArticleController) UserArticle(context *gin.Context) {
 			docHome, err := goquery.NewDocumentFromReader(response.Body)
 			if err != nil {
 				zap.L().Error("goquery.NewDocumentFromReader(response.Body) is failed", zap.Error(err))
+				zap.L().Error("error is name : %s", zap.Any("name", userArticleInformation[i].Name))
 				return
 			}
 			// 这里可以对主页文档进行解析和提取所需信息
 			//最新一周简书文章的链接
 			articleUrl := article.ParseBooksHomeHtml(docHome)
+			zap.L().Info("名字: ", zap.Any("name", userArticleInformation[i].Name))
+			zap.L().Info("连接", zap.Any("url", articleUrl))
 			//根据拿到的最新一周的简书文章的链接,爬取简书文章内容
 			for _, url := range articleUrl {
 				//发送请求

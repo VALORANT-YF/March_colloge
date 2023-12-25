@@ -3,6 +3,7 @@ package mysql
 import (
 	"college/models/bookBlogArticle"
 	"college/models/usersModel"
+	"fmt"
 	"gorm.io/gorm"
 )
 
@@ -28,6 +29,7 @@ func InsertBookArticle(allPersonArticle []bookBlogArticle.TbBookArticle) error {
 	}
 
 	//遍历数据 执行插入操作
+	fmt.Println("%%%%%", len(allPersonArticle))
 	for _, data := range allPersonArticle {
 		if err := tx.Create(&data).Error; err != nil {
 			tx.Rollback()
