@@ -11,9 +11,9 @@ const (
 )
 
 // SelectUserByTelAndName 根据电话以及用户姓名查询用户是否存在
-func SelectUserByTelAndName(mobile, name, password string) (*usersModel.TbUser, error) {
+func SelectUserByTelAndName(mobile, password string) (*usersModel.TbUser, error) {
 	userInformation := new(usersModel.TbUser)
-	err := DB.Where("name = ? and mobile = ? and password = ?", name, mobile, password).Find(&userInformation).Error
+	err := DB.Where("mobile = ? and password = ?", mobile, password).Find(&userInformation).Error
 	return userInformation, err
 }
 
@@ -73,7 +73,7 @@ func SelectSelfInformation(unionid string) (err error, userSelfInformation users
 
 // UpdateUserSelfInformationDao 修改用户个人信息
 func UpdateUserSelfInformationDao(unionid string, information usersModel.UserUpdateSelfInformation) (err error) {
-	err = DB.Where("unionid = ?", unionid).Table("tb_user").Updates(&information).Error
+	err = DB.Debug().Where("unionid = ?", unionid).Table("tb_user").Updates(&information).Error
 	return
 }
 
@@ -83,7 +83,7 @@ id : 用户id
 newExcellentCount : 新的优秀简书的次数
 */
 func UpdateUserExcellentCount(id uint, newExcellentCount uint32, tx *gorm.DB) error {
-	return tx.Select("excellent_count").Table(tableName).Where("id = ?", id).Update("excellent_count", newExcellentCount).Error
+	return tx.Debug().Select("excellent_count").Table(tableName).Where("id = ?", id).Update("excellent_count", newExcellentCount).Error
 }
 
 // SelectInformationByTel 根据电话查找用户信息

@@ -3,6 +3,8 @@ package logic
 import (
 	"college/dao/mysql"
 	"college/models/bookBlogArticle"
+	"college/models/usersModel"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -140,50 +142,62 @@ func ElectExcellentUserService(excellent bookBlogArticle.Excellent) (result book
 		}
 	}()
 
-	//修改用户被评为优秀简书的次数
-
-	//根据id 拿到简书主人的信息
-	err, userInformation := mysql.SelectBookById(excellent.Id)
-	if err != nil {
-		return result, err
-	}
-	//拿到简书主人的电话号码
-	mobile := userInformation.Mobile
 	//根据电话号码查找简书主人的信息
-	err, queryResult := mysql.SelectInformationByTel(mobile)
-	if err != nil {
-		return result, err
-	}
-	var newCount uint32
-	if excellent.IsTop == 1 {
-		newCount = queryResult.ExcellentCount + 1
-	} else {
-		newCount = queryResult.ExcellentCount - 1
-	}
-	if err = mysql.UpdateUserExcellentCount(queryResult.ID, newCount, tx); err != nil {
-		tx.Rollback()
-		return result, err
-	}
-
+	var queryResult usersModel.TbUser
 	//评选或取消优秀  1 为简书
 	if excellent.BookOrBlog == 1 {
+		//根据id 拿到简书主人的信息
+		err, userInformation := mysql.SelectBookById(excellent.Id)
+		if err != nil {
+			return result, err
+		}
+		//拿到简书主人的电话号码
+		mobile := userInformation.Mobile
+		err, queryResult = mysql.SelectInformationByTel(mobile)
 		//是否评选为优秀简书
 		if err = mysql.UpdateExcellentArticle(excellent.Id, excellent.IsTop, tx); err != nil {
 			tx.Rollback()
 			return result, err
 		}
 	} else {
+		//根据id 拿到简书主人的信息
+		err, userInformation := mysql.SelectBlogById(excellent.Id)
+		if err != nil {
+			return result, err
+		}
+		//拿到简书主人的电话号码
+		mobile := userInformation.Mobile
+		err, queryResult = mysql.SelectInformationByTel(mobile)
 		//是否评选为优秀博客
 		if err = mysql.UpdateExcellentBlog(excellent.Id, excellent.IsTop, tx); err != nil {
 			tx.Rollback()
 			return result, err
 		}
 	}
+	fmt.Println("人员信息", queryResult)
+	if err != nil {
+		return result, err
+	}
+	var newCount uint32
+	if excellent.IsTop == 1 {
+		newCount = queryResult.ExcellentCount + 1
+		fmt.Println("原次数", queryResult.ExcellentCount)
+		fmt.Println("优秀简书次数加1", newCount)
+	} else {
+		newCount = queryResult.ExcellentCount - 1
+		fmt.Println("原次数", queryResult.ExcellentCount)
+		fmt.Println("优秀简书次数减1", newCount)
+	}
+	if err = mysql.UpdateUserExcellentCount(queryResult.ID, newCount, tx); err != nil {
+		tx.Rollback()
+		return result, err
+	}
+
 	if err = tx.Commit().Error; err != nil {
 		tx.Rollback()
 		return result, err
 	}
-	result.IsTop = 1
+	result.IsTop = int(excellent.IsTop)
 	result.ID = int(excellent.Id)
 	return result, err
 }

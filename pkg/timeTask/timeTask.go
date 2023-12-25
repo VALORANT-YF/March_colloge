@@ -30,9 +30,7 @@ func (t Test) GetUserListTest(context *gin.Context) {
 		message.WriteString(value.OneDeptName + ":")
 		message.WriteString("\n")
 		for _, data := range value.NoWriteUserList {
-			count := data.NotWrittenCount
-			countStr := fmt.Sprintf("%v", count)
-			message.WriteString(data.Name + " " + "未写次数:" + countStr + "\t")
+			message.WriteString(data.Name + " ")
 		}
 		message.WriteString("\n")
 	}
@@ -144,7 +142,7 @@ func TimeTask(context *gin.Context) error {
 	//specTest2 := "0 45 16 ? * 6"
 	specArticle := "0 30 23 * * 0" //每周周日 11点半 一次
 
-	specMessage := "0 30 9 ? * 2" //周二早上九点半
+	specMessage := "0 30 17 ? * 2" //周二下午上17点半
 
 	//两个提醒消息 提醒之前需要先爬取简书博客
 	specFriday := "0 30 15 * * 5" //周五下午15:30
@@ -213,7 +211,7 @@ func taskBlog(context *gin.Context) {
 
 // 机器人发送消息
 
-// GetUserList 简书未写名单和优秀简书名单 每周周二下午2:30
+// GetUserList 简书未写名单和优秀简书名单 每周周二下午17:30
 func GetUserList() {
 	var message strings.Builder
 	zap.L().Info("开始获取本周简书未写名单和优秀名单")
@@ -226,9 +224,7 @@ func GetUserList() {
 		message.WriteString(value.OneDeptName + ":")
 		message.WriteString("\n")
 		for _, data := range value.NoWriteUserList {
-			count := data.NotWrittenCount
-			countStr := fmt.Sprintf("%v", count)
-			message.WriteString(data.Name + " " + "未写次数:" + countStr + "\t")
+			message.WriteString(data.Name + " ")
 		}
 		message.WriteString("\n")
 	}
@@ -287,8 +283,8 @@ func GetUserList() {
 	for _, data := range robotToken {
 		err = dingOfficialControllers.SendTextMessage(message.String(), data.WebhookURL)
 		if err != nil {
-			zap.L().Error("机器人发送简书博客消息失败")
-			return
+			zap.L().Error("机器人发送简书博客消息失败", zap.Error(err))
+			continue
 		}
 	}
 	zap.L().Info("结束获取本周简书未写名单和优秀名单")
@@ -329,8 +325,8 @@ func RemindMessage() {
 	for _, data := range robotToken {
 		err = dingOfficialControllers.SendTextMessage(message.String(), data.WebhookURL)
 		if err != nil {
-			zap.L().Error("机器人发送提醒消息失败")
-			return
+			zap.L().Error("机器人发送提醒消息失败", zap.Error(err))
+			continue
 		}
 	}
 	zap.L().Info("机器人发送提醒消息成功")

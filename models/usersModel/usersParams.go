@@ -4,7 +4,6 @@ package usersModel
 
 // UserAccount 封装用户登录时的请求参数
 type UserAccount struct {
-	Name     string `json:"name,omitempty" binding:"required"`     //用户名
 	Mobile   string `json:"mobile,omitempty" binding:"required"`   //电话号码
 	Password string `json:"password,omitempty" binding:"required"` //密码
 }

@@ -5,8 +5,9 @@ import (
 	"college/models/bookBlogArticle"
 	"college/models/robotModels"
 	"college/models/usersModel"
-	"errors"
+	"fmt"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -40,6 +41,7 @@ func UpdateAdminService(adminUri usersModel.UpdateAdminUri) error {
 
 // SelectNoWriteUserService 查询出简书博客未写的名单
 func SelectNoWriteUserService() (err error, queryResult []usersModel.NoWriteView) {
+	var temp strings.Builder
 	var noWriteList []usersModel.NoWriteUser //未写简书的人员名单
 	//1.拿到需要写简书的部门
 	err, needWriteDept := mysql.SelectNeedWriteDept()
@@ -62,10 +64,14 @@ func SelectNoWriteUserService() (err error, queryResult []usersModel.NoWriteView
 				// 判断现在时间是否是周日晚上11点之后
 				now := time.Now()
 				if now.Weekday() == time.Tuesday {
-					// 当前时间是周日晚上11点之后
-					err = mysql.UpdateUserNoWriteCount(user.Userid, user.NotWrittenCount+1)
-					if err != nil {
-						return err, nil
+					if !strings.Contains(temp.String(), user.Name) {
+						temp.WriteString(user.Name + " ")
+						fmt.Println(user.Name, "原来未写的次数", user.NotWrittenCount)
+						fmt.Println("加1", user.NotWrittenCount+1)
+						err = mysql.UpdateUserNoWriteCount(user.Userid, user.NotWrittenCount+1)
+						if err != nil {
+							return err, nil
+						}
 					}
 				}
 				//这个人没有写简书
@@ -148,41 +154,23 @@ func GetRobotTokenList() (err error, result []robotModels.TbRobot) {
 // AddRobotToken 管理员新增机器人Token
 func AddRobotToken(unionid string, newToken robotModels.TbRobot) (err error) {
 	//根据unionid 查询登录的信息
-	err, loginUserInformation := mysql.SelectSelfInformation(unionid)
-	if err != nil {
-		return
-	}
-	if loginUserInformation.Mobile != "17884712216" {
-		return errors.New("权限不足")
-	}
+	//err, loginUserInformation := mysql.SelectSelfInformation(unionid)
+	//if err != nil {
+	//	return
+	//}
+
 	//插入token
 	return mysql.InsertRobotToken(newToken)
 }
 
 // ChangeRobotToken 管理员修改机器人Token
 func ChangeRobotToken(unionid string, newToken robotModels.TbRobot) (err error) {
-	//根据unionid 查询登录的信息
-	err, loginUserInformation := mysql.SelectSelfInformation(unionid)
-	if err != nil {
-		return
-	}
-	if loginUserInformation.Mobile != "17884712216" {
-		return errors.New("权限不足")
-	}
 	//修改token
 	return mysql.UpdateRobotToken(newToken)
 }
 
 // DropRobotToken 管理员删除机器人Token
 func DropRobotToken(unionid string, newToken robotModels.TbRobot) (err error) {
-	//根据unionid 查询登录的信息
-	err, loginUserInformation := mysql.SelectSelfInformation(unionid)
-	if err != nil {
-		return
-	}
-	if loginUserInformation.Mobile != "17884712216" {
-		return errors.New("权限不足")
-	}
 	//删除token
 	return mysql.DeleteRobotToken(newToken)
 }

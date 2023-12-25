@@ -8,6 +8,7 @@ import (
 	"college/pkg/dingToken"
 	"crypto/tls"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -26,6 +27,7 @@ func (o OfficialController) GetDeptList(context *gin.Context) {
 	var deptSearchResult []deptsModel.TbDept //封装查询出的全部部门
 	//从Redis数据库中拿到accessToken
 	accessToken := dingToken.GetOfficialAccessToken()
+	fmt.Println("@@", accessToken)
 	if len(accessToken) == 0 {
 		context.JSON(http.StatusOK, "权限不足")
 		return
@@ -96,6 +98,7 @@ func (o OfficialController) GetDeptList(context *gin.Context) {
 	err := searchDeptLow(1) //初始化部门id为1
 
 	//调用service层
+	fmt.Println(deptSearchResult)
 	err = dingOfficialService.CreateDeptInformationService(deptSearchResult)
 	if err != nil {
 		controller.ResponseError(context, controller.CodeServerBusy)

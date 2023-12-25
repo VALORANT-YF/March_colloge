@@ -28,6 +28,6 @@ func UserRouterGroups(r *gin.Engine) {
 		//查看登录用户的信息
 		userAfterLogin.GET("/selfInformation", userControllers.GetSelfInformation)
 		//用户修改自己的简书博客地址,或者密码
-		userAfterLogin.PATCH("/updateSelfInformation", userControllers.UpdateSelfInformation)
+		userAfterLogin.POST("/updateSelfInformation", userControllers.UpdateSelfInformation)
 	}
 }
